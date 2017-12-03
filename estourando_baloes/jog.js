@@ -116,9 +116,7 @@ function contagem_tempo(segundos) {
 }
 
 function game_over() {
-    
     var balao_KO = document.getElementById('qnt_bl_sto').innerHTML;
     alert('Fim de jogo, o seu tempo terminou. Arrebentou '+balao_KO+' balões');
     window.location.href = 'index.html';
-
 }
