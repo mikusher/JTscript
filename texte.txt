@@ -1,1 +1,1 @@
-go new
+go new, ficheiro de entrada
