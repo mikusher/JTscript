@@ -56,7 +56,7 @@ function nivelRand(nivelRandom) {
 function criarBaloes(qt_bal) {
     for (var index = 1; index <= qt_bal; index++) {
         var balao = document.createElement("img");
-        balao.src = 'imagens/balao_azul_pequeno.png';
+        balao.src = 'imagens/bug/pequeno_bug.png';
         balao.style.margin = '10px';
         balao.id = 'balao_'+index;
         balao.onclick = function(){
@@ -73,7 +73,7 @@ function estoura(elemento) {
     if ((id_balao == 0)) {
        return false;
     } else{
-        document.getElementById(id_balao).src = 'imagens/balao_azul_pequeno_estourado.png';
+        document.getElementById(id_balao).src = 'imagens/bug/pequeno_fixe.png';
         document.getElementById(id_balao).id = 0;
         pontuacao(-1); 
     }
@@ -100,6 +100,7 @@ function situacao_jogo(bl_restatntes) {
     if (bl_restatntes == 0) {
         clearTimeout(timerID);
         alert('Parabéns, jogo finalizado.');
+        window.location.href = 'index.html';
     }
 }
 
