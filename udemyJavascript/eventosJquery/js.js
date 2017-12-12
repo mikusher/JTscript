@@ -32,13 +32,46 @@ $(document).ready( function () {
     $('#entradas').blur(function () { 
         notification();
     });
+ 
  });
+
+ $( document ).ready(function(){
+    
+       // Sets up click behavior on all button elements with the alert class
+       // that exist in the DOM when the instruction was executed
+       $( '.alert' ).on( "click", function() {
+           console.log( "A button with the alert class was clicked!" );
+       });
+    
+       // Now create a new button element with the alert class. This button
+       // was created after the click listeners were applied above, so it
+       // will not have the same click behavior as its peers
+       $( "<button class='alert'>Alert!</button>" ).appendTo( document.body );
+   });
+
+   $('#myCheckbox').prop('checked', true); // Checks it
+   $('#myCheckbox').prop('checked', false); // Unchecks it
+
 
 $(document).ready(function () {
     $('.campos').change(function () { 
-        document.getElementById("username").value = $(".campos option:selected").text();       
+        document.getElementById("username").value = $(".campos option:selected").text(); 
     });
+
 });
+
+$('#news_list').click(function() {
+    var ele = $(this).find('input');
+    if(ele.is(':checked')){
+        ele.removeAttr('checked');
+        $(this).removeClass('admin_checked');
+    }else{
+        ele.attr('checked', 'checked');
+        $(this).addClass('admin_checked');
+    }
+});
+
+
 
  function clickGo(inputU, inputP) {
      var realU = 'luis';
