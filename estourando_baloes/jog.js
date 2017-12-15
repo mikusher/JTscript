@@ -68,11 +68,15 @@ function criarBaloes(qt_bal) {
 }
 
 function estoura(elemento) {
+    //outra forma de eliminar a possibilidade de clicar mais de uma vez, 
+    //remover a operação do on click
+    
     var id_balao = elemento.id;
 
     if ((id_balao == 0)) {
        return false;
     } else{
+        //document.getElementById(id_balao).setAttribute("onclick","");
         document.getElementById(id_balao).src = 'imagens/bug/pequeno_fixe.png';
         document.getElementById(id_balao).id = 0;
         pontuacao(-1); 
