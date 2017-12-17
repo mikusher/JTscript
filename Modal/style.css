@@ -58,6 +58,13 @@ body{
     text-align: center;
 }
 
+.modal-footer button{
+    background: coral;
+    padding: 1em 2em;
+    color: aliceblue;
+    border: 0;
+}
+
 .closeBtn{
     color: #ccc;
     float: right;
