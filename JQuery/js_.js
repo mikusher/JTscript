@@ -7,17 +7,17 @@ function ocultarElemntoPorTag(tag) {
 }
 
 function exibirElemntoPorClasse(classe) {
-    $('.'+classe).show();
+    $('.' + classe).show();
 }
 
 function ocultarElemntoPorClasse(classe) {
-    $('.'+classe).hide();
+    $('.' + classe).hide();
 }
 
 function exibirElemntoPorId(id) {
-    $('#'+id).show();
+    $('#' + id).show();
 }
 
 function ocultarElemntoPorId(id) {
-    $('#'+id).hide();
+    $('#' + id).hide();
 }

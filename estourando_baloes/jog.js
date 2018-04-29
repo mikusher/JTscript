@@ -26,7 +26,7 @@ function iniciaJogo() {
         tempo_segundos = 30;
         nRand = 3;
     }
-    
+
     //inserir os segundos no span
     document.getElementById('cronometro').innerHTML = tempo_segundos;
 
@@ -34,20 +34,20 @@ function iniciaJogo() {
     var qnt_baloes = nivelRand(nRand);
 
     //imprimir quantidade de baloes na laterar 
-    document.getElementById('qnt_bl').innerHTML = qnt_baloes;  
+    document.getElementById('qnt_bl').innerHTML = qnt_baloes;
     document.getElementById('qnt_bl_sto').innerHTML = 0;
 
     criarBaloes(qnt_baloes);
-    contagem_tempo(tempo_segundos+1);
+    contagem_tempo(tempo_segundos + 1);
 }
 
 function nivelRand(nivelRandom) {
     var gerarBaloes = 0;
     if (nivelRandom == 1) {
         gerarBaloes = ((Math.random() * (20 - 10 + 1)) + 10);
-    } else if (nivelRandom == 2){
+    } else if (nivelRandom == 2) {
         gerarBaloes = Math.floor((Math.random() * (40 - 20 + 1)) + 20);
-    }else{
+    } else {
         gerarBaloes = Math.floor((Math.random() * (80 - 40 + 1)) + 40);
     }
     return gerarBaloes.toPrecision(2);
@@ -58,8 +58,8 @@ function criarBaloes(qt_bal) {
         var balao = document.createElement("img");
         balao.src = 'imagens/bug/pequeno_bug.png';
         balao.style.margin = '10px';
-        balao.id = 'balao_'+index;
-        balao.onclick = function(){
+        balao.id = 'balao_' + index;
+        balao.onclick = function () {
             estoura(this);
         };
 
@@ -70,16 +70,16 @@ function criarBaloes(qt_bal) {
 function estoura(elemento) {
     //outra forma de eliminar a possibilidade de clicar mais de uma vez, 
     //remover a operação do on click
-    
+
     var id_balao = elemento.id;
 
     if ((id_balao == 0)) {
-       return false;
-    } else{
+        return false;
+    } else {
         //document.getElementById(id_balao).setAttribute("onclick","");
         document.getElementById(id_balao).src = 'imagens/bug/pequeno_fixe.png';
         document.getElementById(id_balao).id = 0;
-        pontuacao(-1); 
+        pontuacao(-1);
     }
 
 }
@@ -109,18 +109,18 @@ function situacao_jogo(bl_restatntes) {
 }
 
 function contagem_tempo(segundos) {
-    segundos = segundos -1;
+    segundos = segundos - 1;
     if (segundos == -1) {
         clearTimeout(timerID); //para a função de time out
         game_over();
         return false;
     }
     document.getElementById('cronometro').innerHTML = segundos;
-    timerID = setTimeout("contagem_tempo("+segundos+")", 1000); //cria um cronometro
+    timerID = setTimeout("contagem_tempo(" + segundos + ")", 1000); //cria um cronometro
 }
 
 function game_over() {
     var balao_KO = document.getElementById('qnt_bl_sto').innerHTML;
-    alert('Fim de jogo, o seu tempo terminou. Arrebentou '+balao_KO+' balões');
+    alert('Fim de jogo, o seu tempo terminou. Arrebentou ' + balao_KO + ' balões');
     window.location.href = 'index.html';
 }

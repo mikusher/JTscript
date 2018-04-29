@@ -1,16 +1,16 @@
 var Terminado = {
-    
-    preload: function(){
-        
+
+    preload: function () {
+
     },
-    
-    create: function(){
+
+    create: function () {
         juego.stage.backgroundColor = "990000";
-        if(confirm('Ha perdido, desea reiniciar?'))  
+        if (confirm('Ha perdido, desea reiniciar?'))
             juego.state.start('Estado');
     },
-    
-    iniciar: function(){
-        
+
+    iniciar: function () {
+
     }
 };
