@@ -23,7 +23,7 @@ function display() {
 function move() {
 	bola.x = bola.x + random(-1, 1);
 	bola.y = bola.y + random(-1, 1);
-	console.log("X = " + bola.x);
-	console.log("Y = " + bola.y);
-	console.log("");
+	//console.log("X = " + bola.x);
+	//console.log("Y = " + bola.y);
+	//console.log("");
 }
