@@ -1,6 +1,6 @@
 // variables
 var mapimg;
-var earthquakes;
+var earthquakes, earthquakesJson;
 var myToken = 'pk.eyJ1IjoibWlrdXNoZXIiLCJhIjoiY2ppOTVsMzV1MGR1ZTNwczVzb2d5cm94ayJ9.ssyGt3-AEd2UgJIarzBTnA';
 
 var canvasPosition = {
@@ -15,12 +15,32 @@ var gpsPosition = {
 	lon: 0
 };
 
+var whichDataToUse = false; //false -> csv / true -> Json
+var earthquakesArray = [];
 
 //functions 
 function preload(params) {
 	mapimg = loadImage('https://api.mapbox.com/styles/v1/mapbox/dark-v9/static/0,0,' +gpsPosition.zoom+',0,0/' + canvasPosition.x + 'x' + canvasPosition.y+'?access_token='+myToken);
 	//Past 30 Days (today 10Jun)
 	earthquakes = loadStrings('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv');
+
+	earthquakesJson = $.ajax({
+		url: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson",
+		dataType: "json",
+		success: function (earthquakesJsondata) {
+			for (let index = 0; index < earthquakesJsondata.features.length; index++) {
+				const gpsPositionBackup = { lat: 0, lon: 0, mag: 0 };
+				gpsPositionBackup.lon = earthquakesJsondata.features[index].geometry.coordinates[0];
+				gpsPositionBackup.lat = earthquakesJsondata.features[index].geometry.coordinates[1];
+				gpsPositionBackup.mag = earthquakesJsondata.features[index].properties.mag;
+				
+				earthquakesArray.push(gpsPositionBackup);
+			}
+		},
+		error: function (xhr) {
+			alert(xhr.statusText);
+		}
+	});
 
 	//Past Day (today 10Jun)
 	//earthquakes = loadStrings('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.csv');
@@ -54,13 +74,23 @@ function setup() {
 	var cx = mercX(gpsPosition.clat);
 	var cy = mercY(gpsPosition.clon);
 
-	for (const earthquake of earthquakes) {
-		var data = earthquake.split(/,/);
-		gpsPosition.lat = data[1];
-		gpsPosition.lon = data[2];
+
+	var dataIterator = whichDataToUse ? earthquakesArray : earthquakes;
+
+	for (const earthquake of dataIterator) {
+		if (whichDataToUse === true) {
+			$.when(earthquake).done(() =>
+				gpsPosition.lat = earthquake.lat,
+				gpsPosition.lon = earthquake.lon
+			);
+		}else{
+			var data = earthquake.split(/,/);
+			gpsPosition.lat = data[1];
+			gpsPosition.lon = data[2];
+		}
 
 		//get magnitude
-		var mag = data[4];
+		var mag = whichDataToUse ? earthquake.mag : data[4];
 
 		var x = mercX(gpsPosition.lon) - cx;
 		var y = mercY(gpsPosition.lat) - cy;
