@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 var nums = [100, 20, 40, 70, 80];
 
 function setup() {

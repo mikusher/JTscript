@@ -1,7 +1,7 @@
 var bola = {
 	x: 300,
 	y: 200,
-}
+};
 
 function setup() {
 	createCanvas(600, 400);
