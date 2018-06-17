@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 var nums = ["0"];
 var index = 0,  
 	timeEnd = 0;
