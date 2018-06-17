@@ -20,7 +20,7 @@ var earthquakesArray = [];
 
 //functions 
 function preload(params) {
-	mapimg = loadImage('https://api.mapbox.com/styles/v1/mapbox/dark-v9/static/0,0,' +gpsPosition.zoom+',0,0/' + canvasPosition.x + 'x' + canvasPosition.y+'?access_token='+myToken);
+	mapimg = loadImage('https://api.mapbox.com/styles/v1/mapbox/dark-v9/static/0,0,' +gpsPosition.zoom+',0,0/' + canvasPosition.x + 'x' + canvasPosition.y + '?access_token=' + myToken);
 	//Past 30 Days (today 10Jun)
 	earthquakes = loadStrings('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv');
 
@@ -29,7 +29,11 @@ function preload(params) {
 		dataType: "json",
 		success: function (earthquakesJsondata) {
 			for (let index = 0; index < earthquakesJsondata.features.length; index++) {
-				const gpsPositionBackup = { lat: 0, lon: 0, mag: 0 };
+				const gpsPositionBackup = { 
+					lat: 0, 
+					lon: 0, 
+					mag: 0 
+				};
 				gpsPositionBackup.lon = earthquakesJsondata.features[index].geometry.coordinates[0];
 				gpsPositionBackup.lat = earthquakesJsondata.features[index].geometry.coordinates[1];
 				gpsPositionBackup.mag = earthquakesJsondata.features[index].properties.mag;
@@ -61,7 +65,6 @@ function mercY(lat) {
 	var b = tan(PI/4 + lat / 2);
 	var c = PI - log(b);
 	return a * c;
-
 }
 
 
@@ -105,5 +108,4 @@ function setup() {
 		fill(255, 0, 255, 200);
 		ellipse(x, y, d, d);
 	}
-
 }
