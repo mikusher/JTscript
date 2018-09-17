@@ -1,17 +1,27 @@
 class CalcController{
 
     constructor(){
-        this._displayCalc = 0;
-        this._currentDate;
+        this._locale = navigator.language;
+
+        this._displayEL = document.getElementById("display");
+        this._dateEL = document.getElementById("date");
+        // Second option for time.
+        this._timeEL = document.getElementById("time");
+        //this._currentDate;
         this.init();
     };
 
     init(){
 
-        let displayEL = document.getElementById("display");
-        let dateEL = document.getElementById("date");
-        let timeEL = document.getElementById("time");
+        this.setDisplayDateScreen();
+        setInterval(() =>{
+            this.setDisplayDateScreen();
+        }, 1000);
 
+
+        let timeEL = document.getElementById("time");
+        // This can also be facilitated and leave as the displayDate the logic is the same,
+        // I prefer to have so in case of study, has always multiple solutions to a single challenge.
         function startTime() {
             let today = new Date();
             let h = today.getHours();
@@ -20,6 +30,7 @@ class CalcController{
             m = checkTime(m);
             s = checkTime(s);
             timeEL.innerHTML = h + ":" + m + ":" + s;
+            //call
             let t = setTimeout(startTime, 500);
         }
         function checkTime(i) {
@@ -29,26 +40,44 @@ class CalcController{
             return i;
         }
 
-        let _data = new Date();
-        displayEL.innerHTML = "0";
-        dateEL.innerHTML = _data.getDate()+"/"+(_data.getMonth()+1)+"/"+_data.getFullYear();
         startTime();
 
     };
 
+    setDisplayDateScreen(){
+        this.displayDate = this.currentDate.toLocaleDateString(this._locale);
+        //this.displayTime = this.displayTime.toLocaleTimeString(this._locale);
+    }
+
+    get displayDate(){
+        return this._dateEL.innerHTML;
+    }
+
+    set displayDate(date){
+        this._dateEL.innerHTML = date;
+    }
+
+    get displayTime(){
+        return this._timeEL.innerHTML;
+    }
+
+    set displayTime(time){
+        this._timeEL.innerHTML = time;
+    }
+
     get displayCalc(){
-        return this._displayCalc;
+        return this._displayEL.innerHTML;
     }
 
     set displayCalc(value){
-        this._displayCalc = value;
+        this._displayEL.innerHTML = value;
     }
 
-    get actualDate(){
-        return this._currentDate;
+    get currentDate(){
+        return new Date();
     }
 
-    set actualDate(date){
+    set currentDate(date){
         this._currentDate = date;
     }
 }
