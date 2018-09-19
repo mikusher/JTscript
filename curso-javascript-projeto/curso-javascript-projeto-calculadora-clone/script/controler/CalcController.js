@@ -3,6 +3,9 @@ class CalcController{
     constructor(){
         this._locale = navigator.language;
 
+        this._lastOperator = '';
+        this._lastNumber = '';
+
         this._operations = [];
         this._displayEL = document.getElementById("display");
         this._dateEL = document.getElementById("date");
@@ -19,6 +22,8 @@ class CalcController{
         setInterval(() =>{
             this.setDisplayDateScreen();
         }, 1000);
+
+        this.setLastNumberDp();
 
 
         let timeEL = document.getElementById("time");
@@ -78,12 +83,13 @@ class CalcController{
     }
 
     setAc(){
-        this.displayCalc = 0;
+        this.setLastNumberDp();
         this._operations = [];
     }
 
     setCe(){
         this._operations.pop();
+        this.setLastNumberDp();
     }
 
     addOperations(value){
@@ -115,22 +121,63 @@ class CalcController{
 
     }
 
+    getResult(){
+        return eval(this._operations.join(""));
+    }
+
     calc() {
-        let last = this._operations.pop();
-        let result = eval(this._operations.join(""));
 
-        this._operations = [result, last];
+        let last = '';
+        this._lastOperator = this.getLastIten();
 
+        if(this._operations.length < 3){
+            let firstIten = this._operations[0];
+            this._operations = [firstIten, this._lastOperator, this._lastNumber];
+        }
+
+        if(this._operations.length > 3){
+           last = this._operations.pop();
+           this._lastNumber = this.getResult();
+        }else if(this._operations.length === 3){
+            this._lastNumber = this.getLastIten(false);
+        }
+
+
+        let result = this.getResult();
+        //check %
+        if(last == '%'){
+            result = result / 100;
+            this._operations = [result];
+        }else {
+            this._operations = [result];
+            if(last){
+                this._operations.push(last);
+            }
+        }
         this.setLastNumberDp();
     }
 
-    setLastNumberDp() {
-        let lastNumber;
+    getLastIten(isOperator = true){
+        let lastIten;
         for (let i = this._operations.length - 1; i >= 0; i--){
-            if (!this.isOperator(this._operations[i])){
-                lastNumber = this._operations[i];
-                break;
+            if(isOperator){
+                if (this.isOperator(this._operations[i]) == isOperator){
+                    lastIten = this._operations[i];
+                    break;
+                }
             }
+        }
+        if(!lastIten){
+            lastIten = (isOperator) ? this._lastOperator : this._lastNumber;
+        }
+        return lastIten;
+    }
+
+    setLastNumberDp() {
+        let lastNumber = this.getLastIten(false);
+
+        if(!lastNumber){
+            lastNumber = 0;
         }
         this.displayCalc = lastNumber;
     }
@@ -163,6 +210,7 @@ class CalcController{
                 this.addOperations('.');
                 break;
             case 'igual':
+                this.calc();
                 break;
             case '0':
             case '1':
