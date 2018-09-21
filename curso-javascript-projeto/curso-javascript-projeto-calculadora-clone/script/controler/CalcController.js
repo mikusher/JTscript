@@ -1,16 +1,21 @@
 class CalcController{
 
     constructor(){
+        //variable
+        const DISPLAY = "display";
+        const DATE = "date";
+        const TIME = "time";
+
         this._locale = navigator.language;
 
         this._lastOperator = '';
         this._lastNumber = '';
 
         this._operations = [];
-        this._displayEL = document.getElementById("display");
-        this._dateEL = document.getElementById("date");
+        this._displayEL = document.getElementById(DISPLAY);
+        this._dateEL = document.getElementById(DATE);
         // Second option for time.
-        this._timeEL = document.getElementById("time");
+        this._timeEL = document.getElementById(TIME);
         //this._currentDate;
         this.init();
         this.initButtonEvents();
@@ -37,7 +42,7 @@ class CalcController{
             m = checkTime(m);
             s = checkTime(s);
             timeEL.innerHTML = h + ":" + m + ":" + s;
-            //call
+            //call time
             let t = setTimeout(startTime, 500);
         }
         function checkTime(i) {
@@ -97,7 +102,7 @@ class CalcController{
         if(isNaN(this.getLastOperation())){
             //string
             if(this.isOperator(value)){
-                // trocar o operador
+                // change o operator
                 this.setLastValueOperation(value);
             }else if(isNaN(value)){
 
@@ -114,7 +119,7 @@ class CalcController{
                 let newValue = this.getLastOperation().toString() + value.toString();
                 this.setLastValueOperation(parseInt(newValue));
 
-                //atualizar display
+                //update display
                 this.setLastNumberDp();
             }
         }
