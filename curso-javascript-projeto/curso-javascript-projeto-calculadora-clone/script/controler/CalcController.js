@@ -1,13 +1,19 @@
 class CalcController{
 
     constructor(){
-        this._locale = navigator.language;
+
+        this._monitoInfo = {
+            locale: navigator.language,
+            display: "display",
+            date: "date",
+            time: "time"
+        };
 
         this._operations = [];
-        this._displayEL = document.getElementById("display");
-        this._dateEL = document.getElementById("date");
+        this._displayEL = document.getElementById(this._monitoInfo.display);
+        this._dateEL = document.getElementById(this._monitoInfo.date);
         // Second option for time.
-        this._timeEL = document.getElementById("time");
+        this._timeEL = document.getElementById(this._monitoInfo.time);
         //this._currentDate;
         this.init();
         this.initButtonEvents();
@@ -21,7 +27,7 @@ class CalcController{
         }, 1000);
 
 
-        let timeEL = document.getElementById("time");
+        let timeEL = document.getElementById(this._monitoInfo.time);
         // This can also be facilitated and leave as the displayDate the logic is the same,
         // I prefer to have so in case of study, has always multiple solutions to a single challenge.
         function startTime() {
@@ -97,7 +103,7 @@ class CalcController{
 
             }else {
                 this.pushOperation(value);
-                this.setLastNumberDp();
+                this.setLastNumberDisplay();
             }
         }else {
             //number
@@ -109,7 +115,7 @@ class CalcController{
                 this.setLastValueOperation(parseInt(newValue));
 
                 //update display
-                this.setLastNumberDp();
+                this.setLastNumberDisplay();
             }
         }
 
@@ -121,10 +127,10 @@ class CalcController{
 
         this._operations = [result, last];
 
-        this.setLastNumberDp();
+        this.setLastNumberDisplay();
     }
 
-    setLastNumberDp() {
+    setLastNumberDisplay() {
         let lastNumber;
         for (let i = this._operations.length - 1; i >= 0; i--){
             if (!this.isOperator(this._operations[i])){
@@ -201,7 +207,7 @@ class CalcController{
 
 
     setDisplayDateScreen(){
-        this.displayDate = this.currentDate.toLocaleDateString(this._locale);
+        this.displayDate = this.currentDate.toLocaleDateString(this._monitoInfo.locale);
     }
 
     get displayDate(){
