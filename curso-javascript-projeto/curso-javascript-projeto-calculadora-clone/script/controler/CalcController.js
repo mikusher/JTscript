@@ -1,19 +1,24 @@
 class CalcController{
 
-    constructor(){
+    constructor(locale){
 
-        this._monitoInfo = {
-            locale: navigator.language,
+        this._last = {
+            operator: '',
+            number: ''
+        };
+
+        this._screenInfo = {
+            locale: locale,
             display: "display",
             date: "date",
             time: "time"
         };
 
         this._operations = [];
-        this._displayEL = document.getElementById(this._monitoInfo.display);
-        this._dateEL = document.getElementById(this._monitoInfo.date);
+        this._displayEL = document.getElementById(this._screenInfo.display);
+        this._dateEL = document.getElementById(this._screenInfo.date);
         // Second option for time.
-        this._timeEL = document.getElementById(this._monitoInfo.time);
+        this._timeEL = document.getElementById(this._screenInfo.time);
         //this._currentDate;
         this.init();
         this.initButtonEvents();
@@ -25,9 +30,9 @@ class CalcController{
         setInterval(() =>{
             this.setDisplayDateScreen();
         }, 1000);
+        this.setLastNumberDisplay();
 
-
-        let timeEL = document.getElementById(this._monitoInfo.time);
+        let timeEL = document.getElementById(this._screenInfo.time);
         // This can also be facilitated and leave as the displayDate the logic is the same,
         // I prefer to have so in case of study, has always multiple solutions to a single challenge.
         function startTime() {
@@ -49,6 +54,7 @@ class CalcController{
         }
 
         startTime();
+
 
     };
 
@@ -79,17 +85,18 @@ class CalcController{
     pushOperation(value){
         this._operations.push(value);
         if(this._operations.length > 3){
-            this.calc();
+            this.calculate();
         }
     }
 
     setAc(){
-        this.displayCalc = 0;
         this._operations = [];
+        this.setLastNumberDisplay();
     }
 
     setCe(){
         this._operations.pop();
+        this.setLastNumberDisplay();
     }
 
     addOperations(value){
@@ -121,22 +128,61 @@ class CalcController{
 
     }
 
-    calc() {
-        let last = this._operations.pop();
-        let result = eval(this._operations.join(""));
+    getResult(){
+        return  eval(this._operations.join(""));
+    }
 
-        this._operations = [result, last];
+    calculate() {
+        let last = '';
+        this._last.operator = this.getLastItem();
+
+        if(this._operations.length < 3){
+            let firstItem = this._operations[0];
+            this._operations = [firstItem, this._last.operator, this._last.number];
+        }
+
+        if(this._operations.length > 3){
+            last = this._operations.pop();
+            this._last.number = this.getResult();
+        }else if(this._operations.length === 3){
+            this._last.number = this.getLastItem(false);
+        }
+
+        let result = this.getResult();
+
+        if (last == '%'){
+            result = result / 100;
+            this._operations = [result];
+        }else {
+            this._operations = [result];
+
+            if(last){
+                this._operations.push(last);
+            }
+        }
 
         this.setLastNumberDisplay();
     }
 
-    setLastNumberDisplay() {
-        let lastNumber;
+    getLastItem(isOperator = true){
+        let lastItem;
         for (let i = this._operations.length - 1; i >= 0; i--){
-            if (!this.isOperator(this._operations[i])){
-                lastNumber = this._operations[i];
+            if (this.isOperator(this._operations[i]) == isOperator){
+                lastItem = this._operations[i];
                 break;
             }
+        }
+        if(!lastItem){
+            lastItem = (isOperator) ? this._last.operator : this._last.number;
+        }
+        return lastItem;
+    }
+
+    setLastNumberDisplay() {
+        let lastNumber = this.getLastItem(false);
+
+        if(!lastNumber){
+            lastNumber = 0;
         }
         this.displayCalc = lastNumber;
     }
@@ -169,6 +215,7 @@ class CalcController{
                 this.addOperations('.');
                 break;
             case 'igual':
+                this.calculate();
                 break;
             case '0':
             case '1':
@@ -207,7 +254,7 @@ class CalcController{
 
 
     setDisplayDateScreen(){
-        this.displayDate = this.currentDate.toLocaleDateString(this._monitoInfo.locale);
+        this.displayDate = this.currentDate.toLocaleDateString(this._screenInfo.locale);
     }
 
     get displayDate(){
