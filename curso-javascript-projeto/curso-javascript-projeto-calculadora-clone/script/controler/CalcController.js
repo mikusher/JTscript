@@ -22,6 +22,7 @@ class CalcController{
         //this._currentDate;
         this.init();
         this.initButtonEvents();
+        this.initKeyBoard();
     };
 
     init(){
@@ -55,8 +56,47 @@ class CalcController{
 
         startTime();
 
-
     };
+
+    initKeyBoard(){
+        document.addEventListener('keyup', evt => {
+            switch (evt.key) {
+                case 'Escape':
+                    this.setAc();
+                    break;
+                case 'Backspace':
+                    this.setCe();
+                    break;
+                case '+':
+                case '-':
+                case '*':
+                case '/':
+                case '%':
+                    this.addOperations(evt.key);
+                    break;
+                case '.':
+                case ',':
+                    this.addDot('.');
+                    break;
+                case 'Enter':
+                case '=':
+                    this.calculate();
+                    break;
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                    this.addOperations(parseInt(evt.key));
+                    break;
+            }
+        });
+    }
 
     //create a new function for all button event
     addEventListenerAll(element, events, func){
