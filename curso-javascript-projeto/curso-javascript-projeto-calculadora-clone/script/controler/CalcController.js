@@ -121,7 +121,7 @@ class CalcController{
             }else {
                 //number
                 let newValue = this.getLastOperation().toString() + value.toString();
-                this.setLastValueOperation(parseFloat(newValue));
+                this.setLastValueOperation(newValue);
 
                 //update display
                 this.setLastNumberDisplay();
@@ -191,6 +191,9 @@ class CalcController{
 
     addDot(){
         let lastOp = this.getLastOperation();
+
+        if(typeof lastOp === 'string' && lastOp.split('').indexOf('.') > -1 ) return;
+
         if(this.isOperator(lastOp) || !lastOp){
             this.pushOperation('0.');
         }else {
