@@ -90,6 +90,8 @@ class CalcController{
     }
 
     setAc(){
+        this._last.operator = '';
+        this._last.number = '';
         this._operations = [];
         this.setLastNumberDisplay();
     }
@@ -119,7 +121,7 @@ class CalcController{
             }else {
                 //number
                 let newValue = this.getLastOperation().toString() + value.toString();
-                this.setLastValueOperation(parseInt(newValue));
+                this.setLastValueOperation(parseFloat(newValue));
 
                 //update display
                 this.setLastNumberDisplay();
@@ -187,6 +189,16 @@ class CalcController{
         this.displayCalc = lastNumber;
     }
 
+    addDot(){
+        let lastOp = this.getLastOperation();
+        if(this.isOperator(lastOp) || !lastOp){
+            this.pushOperation('0.');
+        }else {
+            this.setLastValueOperation(lastOp.toString() + '.');
+        }
+        this.setLastNumberDisplay();
+    }
+
     //button controler - action
     buttonController(value){
         switch (value) {
@@ -212,7 +224,7 @@ class CalcController{
                 this.addOperations('%');
                 break;
             case 'ponto':
-                this.addOperations('.');
+                this.addDot('.');
                 break;
             case 'igual':
                 this.calculate();
