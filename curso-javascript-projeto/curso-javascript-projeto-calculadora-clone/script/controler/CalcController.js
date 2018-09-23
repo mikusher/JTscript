@@ -25,6 +25,28 @@ class CalcController{
         this.initKeyBoard();
     };
 
+    copyToClipBoard(){
+        let input = document.createElement('input');
+
+        input.value = this.displayCalc;
+
+        document.body.appendChild(input);
+
+        input.select();
+
+        document.execCommand("Copy");
+
+        input.remove();
+
+    }
+
+    pasteFromClipBoard(){
+        document.addEventListener('paste', evt=>{
+            let text = evt.clipboardData.getDate('Text');
+            this.displayCalc = parseFloat(text);
+        })
+    }
+
     init(){
 
         this.setDisplayDateScreen();
@@ -32,6 +54,7 @@ class CalcController{
             this.setDisplayDateScreen();
         }, 1000);
         this.setLastNumberDisplay();
+        this.pasteFromClipBoard();
 
         let timeEL = document.getElementById(this._screenInfo.time);
         // This can also be facilitated and leave as the displayDate the logic is the same,
@@ -93,6 +116,11 @@ class CalcController{
                 case '8':
                 case '9':
                     this.addOperations(parseInt(evt.key));
+                    break;
+                case 'c':
+                    if(evt.ctrlKey){
+                        this.copyToClipBoard();
+                    }
                     break;
             }
         });
