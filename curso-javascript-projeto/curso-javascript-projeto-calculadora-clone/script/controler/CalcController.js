@@ -14,6 +14,8 @@ class CalcController{
             time: "time"
         };
 
+        this._audio = new Audio('click.mp3');
+        this._audioOnOff = false;
         this._operations = [];
         this._displayEL = document.getElementById(this._screenInfo.display);
         this._dateEL = document.getElementById(this._screenInfo.date);
@@ -56,6 +58,15 @@ class CalcController{
         this.setLastNumberDisplay();
         this.pasteFromClipBoard();
 
+        document.querySelectorAll('#logo-hcode').forEach(btn =>{
+            btn.addEventListener('click', evt => {
+                this.toggleAudio();
+            });
+            this.addEventListenerAll(btn, 'mouseover,mouseup,mousedown', execEvt => {
+                btn.style.cursor = "pointer";
+            });
+        });
+
         let timeEL = document.getElementById(this._screenInfo.time);
         // This can also be facilitated and leave as the displayDate the logic is the same,
         // I prefer to have so in case of study, has always multiple solutions to a single challenge.
@@ -76,13 +87,23 @@ class CalcController{
             }  // add zero in front of numbers < 10
             return i;
         }
-
         startTime();
-
     };
+
+    toggleAudio(){
+        this._audioOnOff = (!this._audioOnOff);
+    }
+
+    playAudio(){
+        if(this._audioOnOff){
+            this._audio.currentTime = 0;
+            this._audio.play();
+        }
+    }
 
     initKeyBoard(){
         document.addEventListener('keyup', evt => {
+            this.playAudio();
             switch (evt.key) {
                 case 'Escape':
                     this.setAc();
@@ -199,7 +220,14 @@ class CalcController{
     }
 
     getResult(){
-        return  eval(this._operations.join(""));
+        try {
+            return  eval(this._operations.join(""));
+        }catch (e) {
+            setTimeout(() =>{
+                this.setError();
+            }, 1);
+        }
+
     }
 
     calculate() {
@@ -272,6 +300,8 @@ class CalcController{
 
     //button controler - action
     buttonController(value){
+        this.playAudio();
+
         switch (value) {
             case 'ac':
                 this.setAc();
@@ -361,6 +391,11 @@ class CalcController{
     }
 
     set displayCalc(value){
+        if(value.toString().length > 10){
+            this.setError();
+            return false;
+        }
+
         this._displayEL.innerHTML = value;
     }
 
