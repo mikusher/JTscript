@@ -5,8 +5,6 @@ const net        = new brain.NeuralNetwork();
 
 net.train(serializer.serialize(trainData));
 
-const output_1 = net.run(serializer.encode('Nothing is not ok')); 
-const output_2 = net.run(serializer.encode('I am happy')); 
+const output_1 = net.run(serializer.encode('Nothing is not ok'));
 
 console.log(output_1);
-console.log(output_2);
