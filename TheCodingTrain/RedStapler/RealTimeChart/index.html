@@ -14,34 +14,17 @@
     crossorigin="anonymous">
     
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="js/index.js"></script>
 </head>
 <body>
     <div class="navbar"><span>Real time chart with Plotly.js</span></div>
     <div class="wrapper">
         <div id="chart"></div>
         <script>
-            function getData() {
-                return Math.random();
-            }
-
             Plotly.plot('chart', [{
                 y:[getData()],
                 type:'line'
             }]);
-
-            var cnt = 0;
-            setInterval(()=> {
-                Plotly.extendTraces('chart',{ y:[[getData()]]}, [0]);
-                cnt++;
-
-                if (cnt > 500) {
-                    Plotly.relayout('chart',{
-                        xaxis: {
-                            range: [cnt-500,cnt]
-                        }
-                    });
-                }
-            },15);
         </script>
     </div>
 </body>
