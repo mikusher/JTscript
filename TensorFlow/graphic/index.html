@@ -10,6 +10,14 @@
     <div class="container">
         X:<input type="number" id="input-x">
         Y:<input type="number" id="input-y">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="graph-type">
+            <label class="btn btn-secondary active">
+                <input type="radio" name="options" id="radio-radar" value="radar" autocomplete="off" checked> Radar
+            </label>
+            <label class="btn btn-secondary">
+                <input type="radio" name="options" id="radio-line" value="line" autocomplete="off"> Line
+            </label>
+        </div>
         <button type="button" class="btn btn-primary" data-toggle="button" id="sendPositions">Send Position</button>
     </div>
     <div style="padding: 50px">
