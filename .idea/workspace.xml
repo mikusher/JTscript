@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3128cbab-7086-4cc5-9747-b58bfac8b624" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/LocalStorage/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LocalStorage/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LocalStorage/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="f6047342-c0c5-4b5d-ab8d-4c83d014f20d" name="Revert: Eq button oualperation and config" comment="" />
@@ -21,11 +18,14 @@
     <session id="-1580644695">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.33" value="1" />
+          <entry key="project.open.time.35" value="1" />
+          <entry key="project.open.time.37" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -47,7 +47,7 @@
           <entry key="css" value="44" />
           <entry key="html" value="292" />
           <entry key="js" value="532" />
-          <entry key="txt" value="25" />
+          <entry key="txt" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -55,14 +55,14 @@
           <entry key="CSS" value="44" />
           <entry key="HTML" value="292" />
           <entry key="JavaScript" value="532" />
-          <entry key="PLAIN_TEXT" value="25" />
+          <entry key="PLAIN_TEXT" value="38" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LocalStorage/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="368">
@@ -71,10 +71,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LocalStorage/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
+            <state relative-caret-position="391">
               <caret line="17" column="24" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="24" />
             </state>
           </provider>
@@ -84,7 +84,7 @@
         <entry file="file://$PROJECT_DIR$/LocalStorage/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="46">
-              <caret line="2" column="17" lean-forward="true" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -133,16 +133,19 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/TheCodingTrain/my-nn/node_modules" />
     <handled-path value="$PROJECT_DIR$/redusers/node_modules" />
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
+      <path value="$PROJECT_DIR$/TheCodingTrain/my-nn/package.json" />
+      <path value="$PROJECT_DIR$/curso-javascript-projeto/curso-javascript-projeto-utilizadores/bower_components/bootstrap/package.json" />
       <path value="$PROJECT_DIR$/employeemanager/package.json" />
       <path value="$PROJECT_DIR$/nodeTest/package.json" />
       <path value="$PROJECT_DIR$/redusers/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1057" />
@@ -217,6 +220,9 @@
       <workItem from="1537560033543" duration="146000" />
       <workItem from="1537560303122" duration="26000" />
       <workItem from="1537560692218" duration="1286000" />
+      <workItem from="1538946816461" duration="1197000" />
+      <workItem from="1539194813200" duration="29000" />
+      <workItem from="1539434301294" duration="63000" />
     </task>
     <task id="LOCAL-00001" summary="Ref code">
       <created>1537561515360</created>
@@ -232,11 +238,18 @@
       <option name="project" value="LOCAL" />
       <updated>1537561961368</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Local Storage">
+      <created>1538934666893</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1538934666893</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11093000" />
+    <option name="totallyTimeSpent" value="12436000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -245,7 +258,6 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="DB Browser" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -258,6 +270,7 @@
       <window_info anchor="bottom" id="DB Execution Console" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.17508417" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -301,7 +314,8 @@
     </ignored-roots>
     <MESSAGE value="Ref code" />
     <MESSAGE value="Fixe" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixe" />
+    <MESSAGE value="Local Storage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Local Storage" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/curso-javascript-projeto/curso-javascript-projeto-calculadora-clone/script/Calculator.js">
@@ -350,17 +364,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LocalStorage/style.css">
+    <entry file="file://$PROJECT_DIR$/LocalStorage/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="17" lean-forward="true" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        <state relative-caret-position="391">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LocalStorage/index.js">
+    <entry file="file://$PROJECT_DIR$/LocalStorage/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="17" column="24" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="24" />
+        <state relative-caret-position="46">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
         </state>
       </provider>
     </entry>
