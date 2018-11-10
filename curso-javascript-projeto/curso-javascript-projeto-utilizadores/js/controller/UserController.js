@@ -22,21 +22,42 @@ class UserController {
 
             let index = this.formUP.dataset.trIndex;
             let tr = this.tableEL.rows[index];
-            tr.dataset.user = JSON.stringify(values);
-            tr.innerHTML = `
-                <td><img src="${values.photo}" alt="User Image" class="img-circle img-sm"></td>
-                <td>${values.name}</td>
-                <td>${values.email}</td>
-                <td>${(values.admin) ? 'Sim' : 'Não'}</td>
-                <td>${Utils.dateFormat(values.register)}</td>
-                <td>
-                  <button type="button" class="btn btn-primary btn-edit btn-xs btn-flat">Editar</button>
-                  <button type="button" class="btn btn-danger btn-xs btn-flat">Excluir</button>
-                </td>
-            `;
+            let userOld = JSON.parse(tr.dataset.user);
+            let result = Object.assign({}, userOld, values);
 
-            this.addEventsTr(tr);
-            this.updateCount();
+            //btn.disabled = false;
+            this.getPhoto(this.formUP).then(
+                (content) =>{
+                    if(!values.photo){
+                        result._photo = userOld._photo;
+                    }else {
+                        result._photo = content;
+                    }
+                    tr.dataset.user = JSON.stringify(result);
+
+                    tr.innerHTML = `
+                        <td><img src="${result._photo}" alt="User Image" class="img-circle img-sm"></td>
+                        <td>${result._name}</td>
+                        <td>${result._email}</td>
+                        <td>${(result._admin) ? 'Sim' : 'Não'}</td>
+                        <td>${Utils.dateFormat(result._register)}</td>
+                        <td>
+                          <button type="button" class="btn btn-primary btn-edit btn-xs btn-flat">Editar</button>
+                          <button type="button" class="btn btn-danger btn-xs btn-flat">Excluir</button>
+                        </td>
+                    `;
+
+                    this.addEventsTr(tr);
+                    this.updateCount();
+
+                    this.formUP.reset();
+                    btn.disabled = false;
+                    UserController.showPanel("create");
+                },
+                (e) =>{
+                    console.error(e);
+                });
+
         });
     }
 
@@ -54,7 +75,7 @@ class UserController {
                 return false;
             }
 
-            this.getPhoto().then(
+            this.getPhoto(this.formEL).then(
                 (content) =>{
                     values.photo = content;
                     this.addLine(values);
@@ -68,12 +89,12 @@ class UserController {
         });
     }
 
-    getPhoto(){
+    getPhoto(formEL){
 
         return new Promise((resolve, reject)=>{
             let fileReader = new FileReader();
 
-            let elements = [...this.formEL.elements].filter(item =>{
+            let elements = [...formEL.elements].filter(item =>{
                 if(item.name === 'photo'){
                     return item;
                 }
@@ -188,12 +209,10 @@ class UserController {
     addEventsTr(tr) {
         tr.querySelector(".btn-edit").addEventListener("click", e=>{
             let json = JSON.parse(tr.dataset.user);
-            let form = document.querySelector("#form-user-update");
-
-            form.dataset.trIndex = tr.sectionRowIndex;
+            this.formUP.dataset.trIndex = tr.sectionRowIndex;
 
             for (let name in json){
-                let field = form.querySelector("[name=" + name.replace("_", "") + "]");
+                let field = this.formUP.querySelector("[name=" + name.replace("_", "") + "]");
                 if(field){
 
                     switch (field.type) {
@@ -202,8 +221,8 @@ class UserController {
                             break;
 
                         case 'radio':
-                            field = form.querySelector("[name=" + name.replace("_", "") + "][value=" + json[name] + "]");
-                            field.checked = true;
+                            field = this.formUP.querySelector("[name=" + name.replace("_", "") + "][value=" + json[name] + "]");
+                            //field.checked = true;
                             break;
 
                         case 'checkbox':
@@ -213,9 +232,9 @@ class UserController {
                         default:
                             field.value = json[name];
                     }
-                    field.value = json[name];
                 }
             }
+            this.formUP.querySelector('.photo').src = json._photo;
             UserController.showPanel("update");
         });
     }
