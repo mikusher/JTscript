@@ -20,6 +20,7 @@ window.onload = function(){
         }
     };
 
+    // show list value in local storage
     for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
         let value = localStorage.getItem(key);
