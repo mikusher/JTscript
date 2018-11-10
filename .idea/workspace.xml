@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3128cbab-7086-4cc5-9747-b58bfac8b624" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/LocalStorage/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LocalStorage/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LocalStorage/style.css" afterDir="false" />
+    <list default="true" id="3128cbab-7086-4cc5-9747-b58bfac8b624" name="Default Changelist" comment="Local Storage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/curso-javascript-projeto/curso-javascript-projeto-utilizadores/js/controller/UserController.js" beforeDir="false" afterPath="$PROJECT_DIR$/curso-javascript-projeto/curso-javascript-projeto-utilizadores/js/controller/UserController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/curso-javascript-projeto/curso-javascript-projeto-utilizadores/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/curso-javascript-projeto/curso-javascript-projeto-utilizadores/js/index.js" afterDir="false" />
     </list>
     <list id="f6047342-c0c5-4b5d-ab8d-4c83d014f20d" name="Revert: Eq button oualperation and config" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -21,70 +20,77 @@
     <session id="-1580644695">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.33" value="1" />
+          <entry key="project.open.time.35" value="1" />
+          <entry key="project.open.time.37" value="1" />
+          <entry key="project.open.time.38" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.43" value="1" />
+          <entry key="project.open.time.7" value="2" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="1" />
-          <entry key="html" value="6" />
-          <entry key="js" value="3" />
+          <entry key="html" value="10" />
+          <entry key="js" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="1" />
-          <entry key="HTML" value="6" />
-          <entry key="JavaScript" value="3" />
+          <entry key="HTML" value="10" />
+          <entry key="JavaScript" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="44" />
-          <entry key="html" value="292" />
-          <entry key="js" value="532" />
-          <entry key="txt" value="25" />
+          <entry key="html" value="319" />
+          <entry key="js" value="1735" />
+          <entry key="txt" value="78" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="44" />
-          <entry key="HTML" value="292" />
-          <entry key="JavaScript" value="532" />
-          <entry key="PLAIN_TEXT" value="25" />
+          <entry key="HTML" value="319" />
+          <entry key="JavaScript" value="1735" />
+          <entry key="PLAIN_TEXT" value="78" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LocalStorage/index.html">
+        <entry file="file://$PROJECT_DIR$/curso-javascript-projeto/curso-javascript-projeto-utilizadores/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="16" column="70" selection-start-line="16" selection-start-column="70" selection-end-line="16" selection-end-column="70" />
+            <state relative-caret-position="748">
+              <caret line="527" column="83" selection-start-line="527" selection-start-column="83" selection-end-line="527" selection-end-column="83" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/LocalStorage/index.js">
+        <entry file="file://$PROJECT_DIR$/curso-javascript-projeto/curso-javascript-projeto-utilizadores/js/controller/UserController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="17" column="24" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="24" />
+            <state relative-caret-position="633">
+              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LocalStorage/style.css">
+        <entry file="file://$PROJECT_DIR$/curso-javascript-projeto/curso-javascript-projeto-utilizadores/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="17" lean-forward="true" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+            <state relative-caret-position="23">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -103,6 +109,10 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>click</find>
+      <find>administrador</find>
+      <find>exampleInputEmail</find>
+      <find>user image</find>
+      <find>/.box-header</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\Miky Mikusher\git\JTscript</dir>
@@ -111,6 +121,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="Luis Tavares &lt;mikusher@hotmail.com&gt;" />
         <option value="Luis Amilcar Tavares &lt;mikusher@hotmail.com&gt;" />
       </list>
     </option>
@@ -123,6 +134,9 @@
         <option value="$PROJECT_DIR$/LocalStorage/index.js" />
         <option value="$PROJECT_DIR$/LocalStorage/index.html" />
         <option value="$PROJECT_DIR$/LocalStorage/style.css" />
+        <option value="$PROJECT_DIR$/curso-javascript-projeto/curso-javascript-projeto-utilizadores/index.html" />
+        <option value="$PROJECT_DIR$/curso-javascript-projeto/curso-javascript-projeto-utilizadores/js/index.js" />
+        <option value="$PROJECT_DIR$/curso-javascript-projeto/curso-javascript-projeto-utilizadores/js/controller/UserController.js" />
       </list>
     </option>
   </component>
@@ -133,19 +147,23 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/TheCodingTrain/my-nn/node_modules" />
     <handled-path value="$PROJECT_DIR$/redusers/node_modules" />
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
+      <path value="$PROJECT_DIR$/TheCodingTrain/my-nn/package.json" />
+      <path value="$PROJECT_DIR$/curso-javascript-projeto/curso-javascript-projeto-utilizadores/bower_components/bootstrap/package.json" />
       <path value="$PROJECT_DIR$/employeemanager/package.json" />
       <path value="$PROJECT_DIR$/nodeTest/package.json" />
       <path value="$PROJECT_DIR$/redusers/package.json" />
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="953" />
-    <option name="width" value="974" />
-    <option name="height" value="1057" />
+    <option name="x" value="-130" />
+    <option name="y" value="-19" />
+    <option name="width" value="1852" />
+    <option name="height" value="791" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -155,6 +173,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -165,13 +184,33 @@
             <path>
               <item name="JTscript" type="b2602c69:ProjectViewProjectNode" />
               <item name="JTscript" type="462c0819:PsiDirectoryNode" />
-              <item name="LocalStorage" type="462c0819:PsiDirectoryNode" />
+              <item name="curso-javascript-projeto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JTscript" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JTscript" type="462c0819:PsiDirectoryNode" />
+              <item name="curso-javascript-projeto" type="462c0819:PsiDirectoryNode" />
+              <item name="curso-javascript-projeto-utilizadores" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JTscript" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JTscript" type="462c0819:PsiDirectoryNode" />
+              <item name="curso-javascript-projeto" type="462c0819:PsiDirectoryNode" />
+              <item name="curso-javascript-projeto-utilizadores" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JTscript" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JTscript" type="462c0819:PsiDirectoryNode" />
+              <item name="curso-javascript-projeto" type="462c0819:PsiDirectoryNode" />
+              <item name="curso-javascript-projeto-utilizadores" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -193,12 +232,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JavaScript Debug.index.html (1)">
+    <configuration name="index.html (1)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/JTscript/curso-javascript-projeto/curso-javascript-projeto-utilizadores/index.html">
+      <method v="2" />
+    </configuration>
     <configuration name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/JTscript/LocalStorage/index.html">
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.index.html" />
+      <item itemvalue="JavaScript Debug.index.html (1)" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.index.html (1)" />
         <item itemvalue="JavaScript Debug.index.html" />
       </list>
     </recent_temporary>
@@ -217,6 +264,14 @@
       <workItem from="1537560033543" duration="146000" />
       <workItem from="1537560303122" duration="26000" />
       <workItem from="1537560692218" duration="1286000" />
+      <workItem from="1538946816461" duration="1197000" />
+      <workItem from="1539194813200" duration="29000" />
+      <workItem from="1539434301294" duration="63000" />
+      <workItem from="1539434386027" duration="9228000" />
+      <workItem from="1539640687746" duration="56000" />
+      <workItem from="1539640783447" duration="383000" />
+      <workItem from="1540760407642" duration="74000" />
+      <workItem from="1540760786065" duration="4524000" />
     </task>
     <task id="LOCAL-00001" summary="Ref code">
       <created>1537561515360</created>
@@ -232,20 +287,34 @@
       <option name="project" value="LOCAL" />
       <updated>1537561961368</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Local Storage">
+      <created>1538934666893</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1538934666893</updated>
+    </task>
+    <task id="LOCAL-00004" summary="new feature and new control to user">
+      <created>1539641123613</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1539641123613</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11093000" />
+    <option name="totallyTimeSpent" value="26701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17281349" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1780822" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="DB Browser" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -258,6 +327,7 @@
       <window_info anchor="bottom" id="DB Execution Console" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.17508417" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -301,7 +371,9 @@
     </ignored-roots>
     <MESSAGE value="Ref code" />
     <MESSAGE value="Fixe" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixe" />
+    <MESSAGE value="Local Storage" />
+    <MESSAGE value="new feature and new control to user" />
+    <option name="LAST_COMMIT_MESSAGE" value="new feature and new control to user" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/curso-javascript-projeto/curso-javascript-projeto-calculadora-clone/script/Calculator.js">
@@ -343,17 +415,10 @@
         <state relative-caret-position="-808" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LocalStorage/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="70" selection-start-line="16" selection-start-column="70" selection-end-line="16" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LocalStorage/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
-          <caret line="2" column="17" lean-forward="true" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -361,6 +426,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
           <caret line="17" column="24" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LocalStorage/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/udemyJavascript/eventosJquery/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-716" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/udemyJavascript/eventosJquery/toGo.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/curso-javascript-projeto/curso-javascript-projeto-utilizadores/js/classes/Utils.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/curso-javascript-projeto/curso-javascript-projeto-utilizadores/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="527" column="83" selection-start-line="527" selection-start-column="83" selection-end-line="527" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/curso-javascript-projeto/curso-javascript-projeto-utilizadores/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/curso-javascript-projeto/curso-javascript-projeto-utilizadores/js/controller/UserController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="633">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
         </state>
       </provider>
     </entry>

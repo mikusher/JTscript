@@ -1,6 +1,7 @@
 class UserController {
-    constructor(formId, tableId){
-        this.formEL = document.getElementById(formId);
+    constructor(formIdCreate, formIdUpdate, tableId){
+        this.formEL = document.getElementById(formIdCreate);
+        this.formUP = document.getElementById(formIdUpdate);
         this.tableEL = document.getElementById(tableId);
         this.onSubmit();
         this.onEdit();
@@ -9,6 +10,33 @@ class UserController {
     onEdit(){
         document.querySelector("#box-user-update .btn-cancel").addEventListener("click", e=>{
             UserController.showPanel("create");
+        });
+
+        this.formUP.addEventListener("submit", event => {
+            event.preventDefault();
+
+            let btn = this.formUP.querySelector("[type=submit]");
+            btn.disabled = true;
+
+            let values = this.getValues(this.formUP);
+
+            let index = this.formUP.dataset.trIndex;
+            let tr = this.tableEL.rows[index];
+            tr.dataset.user = JSON.stringify(values);
+            tr.innerHTML = `
+                <td><img src="${values.photo}" alt="User Image" class="img-circle img-sm"></td>
+                <td>${values.name}</td>
+                <td>${values.email}</td>
+                <td>${(values.admin) ? 'Sim' : 'Não'}</td>
+                <td>${Utils.dateFormat(values.register)}</td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-edit btn-xs btn-flat">Editar</button>
+                  <button type="button" class="btn btn-danger btn-xs btn-flat">Excluir</button>
+                </td>
+            `;
+
+            this.addEventsTr(tr);
+            this.updateCount();
         });
     }
 
@@ -20,7 +48,7 @@ class UserController {
             let btn = this.formEL.querySelector("[type=submit]");
             btn.disabled = true;
 
-            let values = this.getValues();
+            let values = this.getValues(this.formEL);
 
             if(!values){
                 return false;
@@ -70,16 +98,15 @@ class UserController {
         });
     }
 
-    getValues(){
+    getValues(myForm){
         let user = {};
         var isValid = true;
 
-        [...this.formEL.elements].forEach(function (field, index) {
+        [...myForm.elements].forEach(function (field, index) {
             if(['name', 'email', 'password'].indexOf(field.name) > -1 && !field.value){
                 field.parentElement.classList.add('has-error');
                 isValid = false;
             }
-
 
             if (field.name === "gender"){
                 if (field.checked){
@@ -126,13 +153,8 @@ class UserController {
             </td>
         `;
 
-        tr.querySelector(".btn-edit").addEventListener("click", e=>{
-            JSON.parse(tr.dataset.user);
-            UserController.showPanel("update");
-        });
-
+        this.addEventsTr(tr);
         this.tableEL.appendChild(tr);
-
         this.updateCount();
     }
 
@@ -161,5 +183,40 @@ class UserController {
         document.querySelector("#number-users").innerHTML = numberUsers;
         document.querySelector("#number-users-admin").innerHTML = numberAdmin;
 
+    }
+
+    addEventsTr(tr) {
+        tr.querySelector(".btn-edit").addEventListener("click", e=>{
+            let json = JSON.parse(tr.dataset.user);
+            let form = document.querySelector("#form-user-update");
+
+            form.dataset.trIndex = tr.sectionRowIndex;
+
+            for (let name in json){
+                let field = form.querySelector("[name=" + name.replace("_", "") + "]");
+                if(field){
+
+                    switch (field.type) {
+                        case 'file':
+                            continue;
+                            break;
+
+                        case 'radio':
+                            field = form.querySelector("[name=" + name.replace("_", "") + "][value=" + json[name] + "]");
+                            field.checked = true;
+                            break;
+
+                        case 'checkbox':
+                            field.checked = json[name];
+                            break;
+
+                        default:
+                            field.value = json[name];
+                    }
+                    field.value = json[name];
+                }
+            }
+            UserController.showPanel("update");
+        });
     }
 }
