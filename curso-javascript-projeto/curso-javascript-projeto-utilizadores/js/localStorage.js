@@ -1,4 +1,6 @@
-document.getElementById("clearLS").addEventListener("click", function(event){
+/**
+ document.getElementById("clearSLS").addEventListener("click", function(event){
     event.preventDefault();
     console.log("mikusher");
 });
+ */

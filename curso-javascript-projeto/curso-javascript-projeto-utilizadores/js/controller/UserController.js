@@ -3,9 +3,20 @@ class UserController {
         this.formEL = document.getElementById(formIdCreate);
         this.formUP = document.getElementById(formIdUpdate);
         this.tableEL = document.getElementById(tableId);
+        this.storageType = 'local'; //local or session
         this.onSubmit();
         this.onEdit();
-        this.selectAllDataInSessionStorage();
+        this.onClearStorage(this.storageType);
+        this.selectAllDataInStorage(this.storageType);
+    }
+
+    onClearStorage(storageType){
+        document.getElementById("clearSLS").addEventListener("click", function(event){
+            event.stopImmediatePropagation();
+            event.preventDefault();
+            (storageType === 'session') ? sessionStorage.clear() : localStorage.clear();
+            location.reload();
+        });
     }
 
     onEdit(){
@@ -79,7 +90,7 @@ class UserController {
             this.getPhoto(this.formEL).then(
                 (content) =>{
                     values.photo = content;
-                    this.insertSessionStorage(values);
+                    UserController.insertStorageData(values, this.storageType);
                     this.addLine(values);
                     this.formEL.reset();
                     btn.disabled = false;
@@ -158,16 +169,18 @@ class UserController {
         );
     }
 
-    static getUserStorageData(){
+    static getUserStorageData(storageType){
         let users = [];
-        if(sessionStorage.getItem("Users")){
-            users = JSON.parse(sessionStorage.getItem("Users"));
+        let storageData = (storageType === 'session') ? sessionStorage : localStorage;
+
+        if(storageData.getItem("Users")){
+            users = JSON.parse(storageData.getItem("Users"));
         }
         return users;
     }
 
-    selectAllDataInSessionStorage(){
-        let users = UserController.getUserStorageData();
+    selectAllDataInStorage(storageType){
+        let users = UserController.getUserStorageData(storageType);
 
         users.forEach(dataUser =>{
             let user = new User();
@@ -177,10 +190,10 @@ class UserController {
 
     }
 
-    insertSessionStorage(dataUser){
-        let users = UserController.getUserStorageData();
+    static insertStorageData(dataUser, storageType){
+        let users = UserController.getUserStorageData(storageType);
         users.push(dataUser);
-        sessionStorage.setItem("Users", JSON.stringify(users));
+        (storageType === 'session') ? sessionStorage.setItem("Users", JSON.stringify(users)) : localStorage.setItem("Users", JSON.stringify(users));
     }
 
     addLine(dataUser){
