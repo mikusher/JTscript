@@ -5,6 +5,7 @@ class UserController {
         this.tableEL = document.getElementById(tableId);
         this.onSubmit();
         this.onEdit();
+        this.selectAllDataInSessionStorage();
     }
 
     onEdit(){
@@ -78,6 +79,7 @@ class UserController {
             this.getPhoto(this.formEL).then(
                 (content) =>{
                     values.photo = content;
+                    this.insertSessionStorage(values);
                     this.addLine(values);
                     this.formEL.reset();
                     btn.disabled = false;
@@ -156,6 +158,31 @@ class UserController {
         );
     }
 
+    static getUserStorageData(){
+        let users = [];
+        if(sessionStorage.getItem("Users")){
+            users = JSON.parse(sessionStorage.getItem("Users"));
+        }
+        return users;
+    }
+
+    selectAllDataInSessionStorage(){
+        let users = UserController.getUserStorageData();
+
+        users.forEach(dataUser =>{
+            let user = new User();
+            user.loadFromJSON(dataUser);
+            this.addLine(user);
+        })
+
+    }
+
+    insertSessionStorage(dataUser){
+        let users = UserController.getUserStorageData();
+        users.push(dataUser);
+        sessionStorage.setItem("Users", JSON.stringify(users));
+    }
+
     addLine(dataUser){
 
         let tr = document.createElement('tr');
@@ -209,6 +236,7 @@ class UserController {
     addEventsTr(tr) {
 
         tr.querySelector(".btn-delete").addEventListener("click", e=>{
+            //TODO: change to modal
             if(confirm("Deseja realmente excluir?")){
                 tr.remove();
                 this.updateCount();

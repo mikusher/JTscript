@@ -79,5 +79,19 @@ class User {
     set admin(admin){
         this._admin = admin;
     }
-    
+
+
+    loadFromJSON(dataUserJSON) {
+
+        for(let name in dataUserJSON){
+            switch (name) {
+                case '_register':
+                    this[name] = new Date(dataUserJSON[name]);
+                    break;
+                default:
+                    this[name] = dataUserJSON[name];
+            }
+        }
+
+    }
 }
