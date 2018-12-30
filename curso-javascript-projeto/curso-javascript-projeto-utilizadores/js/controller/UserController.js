@@ -8,7 +8,20 @@ class UserController {
         this.onEdit();
         this.onClearStorage(this.storageType);
         this.selectAllDataInStorage(this.storageType);
+        UserController.generalControl();
     }
+
+    static generalControl(){
+        document.getElementById("user-circle").addEventListener("click", function(evt){
+            $('[data-toggle="popover"]').popover({
+                trigger: 'focus',
+                content: 'Vivamus',
+                placement: 'top',
+                container: 'body'
+            });
+        });
+    }
+
 
     onClearStorage(storageType){
         document.getElementById("clearSLS").addEventListener("click", function(event){
